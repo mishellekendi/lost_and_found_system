@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Campus Lost and Found System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Campus Lost and Found Portal</h1>
+        <div class="nav-links">
+            <a href="#form-section">Report Item</a> | 
+            <a href="#gallery-section">Found Items Gallery</a>
+        </div>
+    </header>
+
+    <main>
+        <div id="form-section" class="box">
+            <h2>Report Lost Item</h2>
+            
+            <form id="lostForm" action="process.php" method="POST" onsubmit="return validateForm()">
+                
+                <p>
+                    <label for="name">Your Full Name:</label><br>
+                    <input type="text" id="name" name="name">
+                    <span id="nameErr" class="error"></span>
+                </p>
+
+                <p>
+                    <label for="email">Email Address:</label><br>
+                    <input type="text" id="email" name="email">
+                    <span id="emailErr" class="error"></span>
+                </p>
+
+                <p>
+                    <label for="category">Item Type:</label><br>
+                    <select id="category" name="category" onchange="showCategoryMsg()">
+                        <option value="">-- Choose Category --</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="keys">Keys</option>
+                        <option value="bags">Bags / Wallet</option>
+                    </select>
+                    <span id="catErr" class="error"></span>
+                </p>
+
+                <p>
+                    <label for="description">Item Description:</label><br>
+                    <textarea id="description" name="description" rows="4" cols="30"></textarea><br>
+                    <span id="descErr" class="error"></span>
+                </p>
+
+                <p>
+                    <label for="location">Where did you lose it?:</label><br>
+                    <input type="text" id="location" name="location">
+                    <span id="locErr" class="error"></span>
+                </p>
+
+                <p>
+                    <label for="date_lost">Date Lost:</label><br>
+                    <input type="date" id="date_lost" name="date_lost">
+                    <span id="dateErr" class="error"></span>
+                </p>
+
+                <p>
+                    <button type="submit">Submit Report</button>
+                </p>
+
+            </form>
+        </div>
+
+        <!-- Similar / Found Items Gallery Section -->
+        <div id="gallery-section" class="box">
+            <h2>Recently Found Items</h2>
+            <p>Click below to show or hide sample pictures of items security has found:</p>
+            
+            <button type="button" onclick="toggleGallery()">Show / Hide Pictures</button>
+            <br><br>
+
+            <div id="pictureContainer" class="gallery" style="display: block;">
+                
+                <div class="card">
+                    <img src="images/phone.jpg" alt="Black Phone">
+                    <p><strong>Found:</strong> Library</p>
+                    <p>Category: Electronics</p>
+                </div>
+
+                <div class="card">
+                    <img src="images/keys.jpg" alt="Brass Keys">
+                    <p><strong>Found:</strong> Gym</p>
+                    <p>Category: Keys</p>
+                </div>
+
+                <div class="card">
+                    <img src="images/bag.jpg" alt="Blue Backpack">
+                    <p><strong>Found:</strong> Canteen</p>
+                    <p>Category: Bags / Wallet</p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
