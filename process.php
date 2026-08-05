@@ -8,7 +8,6 @@ $description = $_POST['description'];
 $location    = $_POST['location'];
 $raw_date    = $_POST['date_lost'];
 
-// Convert MM/DD/YYYY text input to YYYY-MM-DD format for MySQL
 $formatted_date = date('Y-m-d', strtotime($raw_date));
 
 $sql = "INSERT INTO items (user_name, user_email, category, description, location, date_lost) 
