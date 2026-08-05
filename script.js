@@ -1,7 +1,7 @@
 function validateForm() {
     var isValid = true;
 
-    // Get input values
+    
     var nameVal = document.getElementById("name").value.trim();
     var emailVal = document.getElementById("email").value.trim();
     var catVal = document.getElementById("category").value;
@@ -9,7 +9,7 @@ function validateForm() {
     var locVal = document.getElementById("location").value.trim();
     var dateVal = document.getElementById("date_lost").value.trim();
 
-    // Clear previous error messages
+    
     document.getElementById("nameErr").textContent = "";
     document.getElementById("emailErr").textContent = "";
     document.getElementById("catErr").textContent = "";
@@ -17,13 +17,13 @@ function validateForm() {
     document.getElementById("locErr").textContent = "";
     document.getElementById("dateErr").textContent = "";
 
-    // 1. Validate Name
+    
     if (nameVal === "") {
         document.getElementById("nameErr").textContent = "Please enter your full name.";
         isValid = false;
     }
 
-    // 2. Validate Email
+    
     if (emailVal === "") {
         document.getElementById("emailErr").textContent = "Please enter your email.";
         isValid = false;
@@ -32,25 +32,25 @@ function validateForm() {
         isValid = false;
     }
 
-    // 3. Validate Category
+
     if (catVal === "") {
         document.getElementById("catErr").textContent = "Please select a category.";
         isValid = false;
     }
 
-    // 4. Validate Description
+    
     if (descVal === "") {
         document.getElementById("descErr").textContent = "Please enter item details.";
         isValid = false;
     }
 
-    // 5. Validate Location
+    
     if (locVal === "") {
         document.getElementById("locErr").textContent = "Please state where it was lost.";
         isValid = false;
     }
 
-    // 6. Validate Date Format (MM/DD/YYYY)
+    
     if (dateVal === "") {
         document.getElementById("dateErr").textContent = "Please enter the date lost.";
         isValid = false;
