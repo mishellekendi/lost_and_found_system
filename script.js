@@ -43,5 +43,13 @@
         isValid = false;
     }
 
+    if (dateVal === "") {
+        document.getElementById("dateErr").textContent = "Please enter the date lost.";
+        isValid = false;
+    } else if (dateVal.length !== 10 || dateVal.charAt(2) !== '/' || dateVal.charAt(5) !== '/') {
+        document.getElementById("dateErr").textContent = "Please use MM/DD/YYYY format (e.g., 08/05/2026).";
+        isValid = false;
+    }
+
     return isValid;
 }
