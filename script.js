@@ -8,5 +8,12 @@
     var locVal = document.getElementById("location").value.trim();
     var dateVal = document.getElementById("date_lost").value.trim();
 
+    document.getElementById("nameErr").textContent = "";
+    document.getElementById("emailErr").textContent = "";
+    document.getElementById("catErr").textContent = "";
+    document.getElementById("descErr").textContent = "";
+    document.getElementById("locErr").textContent = "";
+    document.getElementById("dateErr").textContent = "";
+
     return isValid;
 }
