@@ -10,105 +10,52 @@
 
     <!-- University Header Banner -->
     <header class="header-banner">
-        <img src="images/bria-logo.svg" alt="Bria University Logo" class="school-logo">
+        <img src="bria-logo.png" alt="Bria University Logo" class="school-logo">
         <div>
             <h1>BRIA UNIVERSITY</h1>
             <p class="tagline">Official Campus Lost & Found Portal</p>
         </div>
     </header>
 
-    <section class="hero-panel">
-        <div class="hero-copy">
-            <h2>Submit a Lost Item Report Quickly and Securely</h2>
-            <p>Use the official campus portal to report lost items, track your submission, and help campus security reunite items with their rightful owners.</p>
-            <div class="feature-list">
-                <div class="feature-card">
-                    <strong>Fast reporting</strong>
-                    Submit key details and get confirmation immediately.
-                </div>
-                <div class="feature-card">
-                    <strong>Campus-safe workflow</strong>
-                    All reports go directly to Bria University security.
-                </div>
-                <div class="feature-card">
-                    <strong>Clear location guidance</strong>
-                    Provide exact campus venue details for faster recovery.
-                </div>
-            </div>
-        </div>
-        <div class="hero-visual">
-            <img src="images/lost-found-illustration.svg" alt="Lost and found illustration" />
-        </div>
-    </section>
-
     <div class="form-container">
         <h2>Report a Lost Item</h2>
         
         <form action="process.php" method="POST" onsubmit="return validateForm()">
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Full Name:</label>
-                    <input type="text" id="name" name="name" >
-                    <span class="error-msg" id="nameErr"></span>
-                </div>
-                <div class="form-group">
-                    <label>Student / Staff Email:</label>
-                    <input type="email" id="email" name="email">
-                    <span class="error-msg" id="emailErr"></span>
-                </div>
-            </div>
+            
+            <label>Full Name:</label>
+            <input type="text" id="name" name="name" placeholder=>
+            <span class="error-msg" id="nameErr"></span>
 
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Category:</label>
-                    <select id="category" name="category">
-                        <option value="">-- Select Category --</option>
-                        <option value="Electronics">Electronics</option>
-                        <option value="Keys">Keys</option>
-                        <option value="Documents">Documents / Student ID</option>
-                        <option value="Accessories">Accessories</option>
-                        <option value="Personal Items">Personal Items</option>
-                    </select>
-                    <span class="error-msg" id="catErr"></span>
-                </div>
-                <div class="form-group">
-                    <label>Date Lost (MM/DD/YYYY):</label>
-                    <input type="text" id="date_lost" name="date_lost" >
-                    <span class="error-msg" id="dateErr"></span>
-                </div>
-            </div>
+            <label>Student / Staff Email:</label>
+            <input type="text" id="email" name="email" placeholder=>
+            <span class="error-msg" id="emailErr"></span>
 
-            <div class="form-group">
-                <label>Item Description: <span id="descCount">0/250 characters</span></label>
-                <textarea id="description" name="description" rows="4" ></textarea>
-                <span class="error-msg" id="descErr"></span>
-            </div>
+            <label>Category:</label>
+            <select id="category" name="category">
+                <option value="">-- Select Category --</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Keys">Keys</option>
+                <option value="Documents">Documents / Student ID</option>
+                <option value="Accessories">Accessories</option>
+                <option value="Personal Items">Personal Items</option>
+            </select>
+            <span class="error-msg" id="catErr"></span>
 
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Campus Location Lost:</label>
-                    <input type="text" id="location" name="location" >
-                    <span class="error-msg" id="locErr"></span>
-                </div>
-                <div class="form-group">
-                    <label>Upload Image</label>
-                    <input type="file" id="item_image" name="item_image" accept="image/*">
-                    <span class="error-msg"></span>
-                </div>
-            </div>
+            <label>Item Description:</label>
+            <textarea id="description" name="description" rows="4" placeholder></textarea>
+            <span class="error-msg" id="descErr"></span>
+
+            <label>Campus Location Lost:</label>
+            <input type="text" id="location" name="location" placeholder=>
+            <span class="error-msg" id="locErr"></span>
+
+            <label>Date Lost (MM/DD/YYYY):</label>
+            <input type="text" id="date_lost" name="date_lost" placeholder>
+            <span class="error-msg" id="dateErr"></span>
 
             <button type="submit">Submit Report to Campus Security</button>
         </form>
-
-        <div class="summary-panel" id="reportSummary">
-            <h3>Report Summary</h3>
-            <p>Fill out the form to see a confirmation summary of the lost item report before submission.</p>
-        </div>
     </div>
-
-    <footer>
-        Built for Bria University security with a simple, accessible reporting experience.
-    </footer>
 
     <script src="script.js"></script>
 </body>
