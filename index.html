@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bria University - Lost and Found Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- University Header Banner -->
+    <header class="header-banner">
+        <img src="bria-logo.png" alt="Bria University Logo" class="school-logo">
+        <div>
+            <h1>BRIA UNIVERSITY</h1>
+            <p class="tagline">Official Campus Lost & Found Portal</p>
+        </div>
+    </header>
+
+    <div class="form-container">
+        <h2>Report a Lost Item</h2>
+        
+        <form action="process.php" method="POST" onsubmit="return validateForm()">
+            
+            <label>Full Name:</label>
+            <input type="text" id="name" name="name" placeholder="">
+            <span class="error-msg" id="nameErr"></span>
+
+            <label>Student / Staff Email:</label>
+            <input type="text" id="email" name="email" placeholder="student@bria.edu">
+            <span class="error-msg" id="emailErr"></span>
+
+            <label>Category:</label>
+            <select id="category" name="category">
+                <option value="">-- Select Category --</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Keys">Keys</option>
+                <option value="Documents">Documents / Student ID</option>
+                <option value="Accessories">Accessories</option>
+                <option value="Personal Items">Personal Items</option>
+            </select>
+            <span class="error-msg" id="catErr"></span>
+
+            <label>Item Description:</label>
+            <textarea id="description" name="description" rows="4" placeholder="Describe color, brand, or specific marks..."></textarea>
+            <span class="error-msg" id="descErr"></span>
+
+            <label>Campus Location Lost:</label>
+            <input type="text" id="location" name="location" placeholder="e.g. Science Complex, Room 204">
+            <span class="error-msg" id="locErr"></span>
+
+            <label>Date Lost (MM/DD/YYYY):</label>
+            <input type="text" id="date_lost" name="date_lost" placeholder="08/05/2026">
+            <span class="error-msg" id="dateErr"></span>
+
+            <button type="submit">Submit Report to Campus Security</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

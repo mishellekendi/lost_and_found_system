@@ -1,0 +1,125 @@
+/* Page Background and Font Settings */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff0f5; /* Soft Rose Background */
+    margin: 0;
+    padding-bottom: 50px;
+}
+
+/* Header Banner - Hot Pink to Coral Orange Gradient */
+.header-banner {
+    background: linear-gradient(135deg, #ff2a75 0%, #ff6b35 100%);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 22px;
+    border-bottom: 6px solid #ffbe0b; /* Bright Yellow/Gold Bottom Accent */
+    box-shadow: 0px 4px 12px rgba(255, 42, 117, 0.3);
+}
+
+.school-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #ffffff;
+    padding: 4px;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
+    object-fit: contain;
+}
+
+.header-banner h1 {
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: 1px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.tagline {
+    margin: 4px 0 0 0;
+    font-size: 15px;
+    color: #ffbe0b; /* Golden Yellow Accent Text */
+    font-weight: 700;
+}
+
+/* Main Form Card */
+.form-container, .card-box {
+    background: #ffffff;
+    max-width: 520px;
+    margin: 35px auto;
+    padding: 30px;
+    border-radius: 12px;
+    border-top: 6px solid #ff2a75; /* Vibrant Pink Top Border */
+    box-shadow: 0px 8px 20px rgba(255, 107, 53, 0.15);
+}
+
+h2 {
+    text-align: center;
+    color: #ff2a75;
+    margin-top: 0;
+    font-size: 22px;
+}
+
+label {
+    display: block;
+    margin-top: 14px;
+    font-weight: 700;
+    color: #333333;
+}
+
+/* Bright Orange Input Borders */
+input, select, textarea {
+    width: 100%;
+    padding: 11px;
+    margin-top: 6px;
+    border: 2px solid #ffd8cc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Highlight Input Border with Pink Glow on Click */
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #ff6b35;
+    box-shadow: 0 0 8px rgba(255, 107, 53, 0.3);
+}
+
+/* Bold Hot Pink Submit Button with Orange Hover */
+button {
+    width: 100%;
+    background-color: #ff2a75; /* Electric Pink */
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    margin-top: 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0px 4px 10px rgba(255, 42, 117, 0.3);
+}
+
+button:hover {
+    background-color: #ff6b35; /* Shifts to Bright Orange on Hover */
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+/* Error Messages */
+.error-msg {
+    color: #d90429;
+    font-size: 13px;
+    font-weight: 600;
+    display: block;
+    margin-top: 4px;
+}
