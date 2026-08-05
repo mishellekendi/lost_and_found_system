@@ -1,80 +1,63 @@
 function validateForm() {
-    const fields = [
-        { id: 'name', label: 'Full Name' },
-        { id: 'email', label: 'Student / Staff Email' },
-        { id: 'category', label: 'Category' },
-        { id: 'description', label: 'Item Description' },
-        { id: 'location', label: 'Campus Location Lost' },
-        { id: 'date_lost', label: 'Date Lost' }
-    ];
+    var isValid = true;
 
-    let valid = true;
-    fields.forEach(field => {
-        const input = document.getElementById(field.id);
-        const error = document.getElementById(`${field.id}Err`);
-        error.textContent = '';
+    // Get input values
+    var nameVal = document.getElementById("name").value.trim();
+    var emailVal = document.getElementById("email").value.trim();
+    var catVal = document.getElementById("category").value;
+    var descVal = document.getElementById("description").value.trim();
+    var locVal = document.getElementById("location").value.trim();
+    var dateVal = document.getElementById("date_lost").value.trim();
 
-        if (!input.value.trim()) {
-            error.textContent = `${field.label} is required.`;
-            valid = false;
-        }
-    });
+    // Clear previous error messages
+    document.getElementById("nameErr").textContent = "";
+    document.getElementById("emailErr").textContent = "";
+    document.getElementById("catErr").textContent = "";
+    document.getElementById("descErr").textContent = "";
+    document.getElementById("locErr").textContent = "";
+    document.getElementById("dateErr").textContent = "";
 
-    const email = document.getElementById('email').value.trim();
-    if (email && !/^\S+@\S+\.\S+$/.test(email)) {
-        document.getElementById('emailErr').textContent = 'Enter a valid email address.';
-        valid = false;
+    // 1. Validate Name
+    if (nameVal === "") {
+        document.getElementById("nameErr").textContent = "Please enter your full name.";
+        isValid = false;
     }
 
-    const dateLost = document.getElementById('date_lost').value.trim();
-    if (dateLost && !/^\d{2}\/\d{2}\/\d{4}$/.test(dateLost)) {
-        document.getElementById('dateErr').textContent = 'Use MM/DD/YYYY format.';
-        valid = false;
+    // 2. Validate Email
+    if (emailVal === "") {
+        document.getElementById("emailErr").textContent = "Please enter your email.";
+        isValid = false;
+    } else if (emailVal.indexOf("@") === -1 || emailVal.indexOf(".") === -1) {
+        document.getElementById("emailErr").textContent = "Email must contain '@' and '.'.";
+        isValid = false;
     }
 
-    if (valid) {
-        showSummary();
+    // 3. Validate Category
+    if (catVal === "") {
+        document.getElementById("catErr").textContent = "Please select a category.";
+        isValid = false;
     }
 
-    return valid;
-}
-
-function showSummary() {
-    const summary = document.getElementById('reportSummary');
-    const values = {
-        name: document.getElementById('name').value.trim(),
-        email: document.getElementById('email').value.trim(),
-        category: document.getElementById('category').value,
-        description: document.getElementById('description').value.trim(),
-        location: document.getElementById('location').value.trim(),
-        date_lost: document.getElementById('date_lost').value.trim()
-    };
-
-    summary.innerHTML = `
-        <h3>Report Summary</h3>
-        <p><strong>Name:</strong> ${values.name}</p>
-        <p><strong>Email:</strong> ${values.email}</p>
-        <p><strong>Category:</strong> ${values.category}</p>
-        <p><strong>Description:</strong> ${values.description}</p>
-        <p><strong>Location:</strong> ${values.location}</p>
-        <p><strong>Date Lost:</strong> ${values.date_lost}</p>
-        <p class="muted">This summary confirms your information before it is sent to campus security.</p>
-    `;
-}
-
-function updateCharacterCount() {
-    const description = document.getElementById('description');
-    const counter = document.getElementById('descCount');
-    counter.textContent = `${description.value.length}/250 characters`;
-}
-
-function setupForm() {
-    const description = document.getElementById('description');
-
-    if (description) {
-        description.addEventListener('input', updateCharacterCount);
-        updateCharacterCount();
+    // 4. Validate Description
+    if (descVal === "") {
+        document.getElementById("descErr").textContent = "Please enter item details.";
+        isValid = false;
     }
-}
 
-document.addEventListener('DOMContentLoaded', setupForm);
+    // 5. Validate Location
+    if (locVal === "") {
+        document.getElementById("locErr").textContent = "Please state where it was lost.";
+        isValid = false;
+    }
+
+    // 6. Validate Date Format (MM/DD/YYYY)
+    if (dateVal === "") {
+        document.getElementById("dateErr").textContent = "Please enter the date lost.";
+        isValid = false;
+    } else if (dateVal.length !== 10 || dateVal.charAt(2) !== '/' || dateVal.charAt(5) !== '/') {
+        document.getElementById("dateErr").textContent = "Please use MM/DD/YYYY format (e.g., 08/05/2026).";
+        isValid = false;
+    }
+
+    return isValid;
+}
