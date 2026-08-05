@@ -28,5 +28,20 @@
         isValid = false;
     }
 
+    if (catVal === "") {
+        document.getElementById("catErr").textContent = "Please select a category.";
+        isValid = false;
+    }
+
+    if (descVal === "") {
+        document.getElementById("descErr").textContent = "Please enter item details.";
+        isValid = false;
+    }
+
+    if (locVal === "") {
+        document.getElementById("locErr").textContent = "Please state where it was lost.";
+        isValid = false;
+    }
+
     return isValid;
 }
